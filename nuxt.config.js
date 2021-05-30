@@ -46,7 +46,9 @@ export default {
           locales: ["en"]
         }
       }
-    ]
+    ],
+
+    "@nuxtjs/google-analytics"
   ],
   tailwindcss: {
     cssPath: "~/assets/css/tailwind.css",
@@ -55,13 +57,23 @@ export default {
     config: {}
   },
 
+  googleAnalytics: {
+    id: "UA-126186784-1"
+  },
+
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
     // https://go.nuxtjs.dev/pwa
-    "@nuxtjs/pwa"
+    "@nuxtjs/pwa",
+
+    "@nuxtjs/gtm"
   ],
+
+  gtm: {
+    id: "GTM-K8J8VL7"
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

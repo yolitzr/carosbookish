@@ -8,9 +8,9 @@
             <section class="py-5 md:py-10 lg:pt-14">
                 <loader-featured :count="3" v-if="loading"/>
                 <FeaturedReviews
-                    v-else 
-                    :featured="books"
-                    textButton="Read Review"               
+                    v-else
+                    :featured="featured"
+                    textButton="Read More"               
                 />
             </section>
             <section class="py-5 md:py-10">
@@ -20,7 +20,7 @@
                 <div class="line"></div>
                 <loader-article :count="4" v-if="loading"/>
                 <Reviews 
-                    :reviews="books"
+                    :reviews="reviews"
                     textButton="Read Review"
                 />
             </section>
@@ -40,7 +40,6 @@
                     v-else 
                     :book="books"
                     textButton="Read More"
-
                 />
             </section>
         </main>
@@ -74,18 +73,52 @@ export default {
     data() {
         return {
             books: [],
+            reviews: [],
+            featured: [],
             loading: true,
             titleReviews: 'Lastet Reviews',
-            titleRelease: 'Upcoming Releases in 2021'
+            titleRelease: 'Upcoming Releases in 2021',
+            languaje: 'Spanish',
+            titleWebsite: `Caro's Bookish`,
         }
     },
 
     created() {
-        this.bookHome();
+        this.bookReviews();
+        this.featuredBooks();
+        this.releaseBooks();
     },
 
     methods: {
-        bookHome() {
+        featuredBooks() {
+             this.loading = true;
+             const body = {
+				"order": {
+					"field": "book.id",
+					"dir": "desc"
+				},
+				"search": [
+					{
+						"fields":["review.id"], 
+						"operator":"isNull", 
+						"value":"null"
+					},
+				],
+			}
+
+            api.booksInfo(body)
+            .then((res) => {
+                this.featured= res.results;
+                this.loading = false;
+            })
+            .catch(error => {
+				console.error(error)
+				this.loading = false;
+			})
+
+        },
+
+        bookReviews() {
             this.loading = true;
             const body = {
                 length: this.limit,
@@ -104,6 +137,33 @@ export default {
 
             api.booksInfo(body)
             .then((res) => {
+                this.reviews = res.results;
+                this.loading = false;
+            })
+            .catch(error => {
+				console.error(error)
+				this.loading = false;
+			})
+        },
+
+        releaseBooks() {
+            this.loading = true;
+            const body = {
+				"order": {
+					"field": "book.id",
+					"dir": "desc"
+				},
+				"search": [
+					{
+                        "fields":["book.published"], 
+                        "operator":">=", 
+                        "value":"2021-01-01"
+                    }
+				],
+			}
+
+            api.booksInfo(body)
+            .then((res) => {
                 this.books = res.results;
                 this.loading = false;
             })
@@ -112,6 +172,26 @@ export default {
 				this.loading = false;
 			})
         },
-    }
+
+        trackers() {
+            this.$ga.page({
+                page: `${this.$route}`,
+                title: `${this.titleWebsite}`,
+                location: window.location.href
+            })
+        },
+    },
+
+    head() {
+        return {
+            title: `${this.titleWebsite}`,
+            meta: [
+                {
+                    hid: 'description',
+                    name: `${this.titleWebsite} - ${this.tittleAbout}`,
+                }
+            ]
+        }
+    },
 }
 </script>

@@ -37,6 +37,7 @@ export default {
     data() {
         return {
             tittleAbout: 'About Me',
+            titleWebsite: `Caro's Bookish`,
             urlImg: require('~/assets/img/me.jpg'),
             descriptionAbout: `¡Hi!, I am Yolit , a girl Venezuelan and lover of books, I’ve been passionate about reading for years, the books have been my warm refuge, that place where I can enjoy a thousand emotions. I always read romantic novels, in all their subgenres, erotic, suspense, etc. I am also very fond of Thriller and Noir Novel. Little by little I have been testing with other genres, such as Young Adult, New Adult and Fantasy.
             <br/>
@@ -63,6 +64,28 @@ export default {
                 },
             ],
         }
-    }
+    },
+
+    methods: {
+        trackers() {
+            this.$ga.page({
+                page: `${this.$route}`,
+                title: `${this.titleWebsite} - ${this.tittleAbout}`,
+                location: window.location.href,
+            })
+        }
+    },
+
+    head() {
+        return {
+            title: `${this.titleWebsite} - ${this.tittleAbout}`,
+            meta: [
+                {
+                    hid: 'description',
+                    name: `${this.titleWebsite} - ${this.tittleAbout}`,
+                }
+            ]
+        }
+    }    
 }
 </script>

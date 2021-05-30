@@ -2,15 +2,15 @@
     <div>
         <div class="flex relative h-96 bg-center bg-no-repeat bg-cover blur" :style="{ backgroundImage: `url(${staticUrl+bookDetails.image_main.path})` }">
             <div class="flex md:flex-col justify-center items-center mx-auto w-full p-4 z-10">
-                <div class="flex flex-col justify-center w-full h-auto py-4 px-5 mt-16">
-                    <h2 class="text-3xl font-bold text-center text-book-light">{{bookDetails.title}}</h2>
-                    <h3 class="mt-4 text-2xl font-semibold text-center text-book-light">{{bookDetails.author.name}} {{bookDetails.author.surname}}</h3>
+                <div class="flex flex-col justify-center w-full h-auto py-4 px-5 mt-16 lg:px-40">
+                    <h2 class="text-3xl font-bold text-center text-book-light lg:text-4xl">{{bookDetails.title}}</h2>
+                    <h3 class="mt-4 text-2xl font-semibold text-center text-book-light lg:text-3xl">{{bookDetails.author.name}} {{bookDetails.author.surname}}</h3>
                     <h4 class="mt-2 text-xl text-center text-book-light">{{bookDetails.editorial}}</h4>
                     <span class="mt-4 block text-center italic text-book-light">{{bookDetails.summary}}</span>
                 </div>
             </div>
         </div>
-        <main class="container mx-auto px-6 py-10 lg:px-14">
+        <main class="container mx-auto px-6 py-10 lg:px-16">
             <section>
                 <section class="grid lg:grid-cols-12 lg:mt-12">
                     <!-- Synopsis and Review -->
@@ -35,7 +35,7 @@
                             <div class="w-full">
                                 <h3 class="text-5xl text-center leading-6 text-book-main sm:mt-8 sm:text-8xl">About the Author</h3>
                             </div>
-                            <div class="flex flex-col justify-center items-center mt-10 bg-book-lighter sm:flex-row sm:py-8 px-4">
+                            <div class="flex flex-col justify-center items-center mt-10 py-8 bg-book-lighter sm:flex-row sm:py-8 px-4">
                                 <figure class="mt-4">
                                     <img :src="staticUrl+bookDetails.author.image.path" class="w-52 rounded-full sm:w-full sm:rounded-none">
                                 </figure>
@@ -61,10 +61,9 @@
                                 <span v-for="star in bookDetails.review.stars" class="fa-2x text-book-main">
                                     <i  class="fas fa-star"></i>
                                 </span>
-
                             </div>
                         </div>
-                        <div class="w-full mt-10 sm:mt-0 sm:flex sm:flex-col sm:justify-center sm:ml-5 lg:mt-14 lg:ml-0 lg:py-8 lg:px-7 lg:rounded-md lg:bg-book-light">
+                        <div class="w-full mt-10 sm:mt-0 sm:flex sm:flex-col sm:justify-center sm:ml-5 lg:ml-0 lg:py-8 lg:px-7 lg:rounded-md lg:bg-book-light">
                             <div class="mt-2 sm:mt-0">
                                 <div class="flex items-center">
                                     <i class="fas fa-barcode"></i>
@@ -153,6 +152,7 @@ export default {
 
     data() {
         return {
+            titleWebsite: `Caro's Bookish`,
             staticUrl: 'http://admin.carosbookish.com/',
             loading: false,
             separadorImg: require('~/assets/img/separator.png'),
@@ -219,6 +219,27 @@ export default {
 				this.loading = false;
 			})
 		},
+
+        trackers() {
+            this.$ga.page({
+                page: `${this.$route.params.slug}`,
+                title: `${this.titleWebsite} - ${this.bookDetails.title}`,
+                location: window.location.href
+            })
+        }
+    },
+
+    head(){
+        return {
+            title: `${this.titleWebsite} - ${this.bookDetails.title}`,
+            meta: [
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: this.bookDetails.summary,
+                }
+            ]
+        }
     }
 }
 </script>

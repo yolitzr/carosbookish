@@ -56,6 +56,7 @@ export default {
     data() {
         return {
             titleReview: 'Reviews',
+            titleWebsite: `Caro's Bookish`,
             listReviews: [],
             search: '',
             staticUrl: 'http://admin.carosbookish.com/',
@@ -107,6 +108,14 @@ export default {
 			})
 		},
 
+        trackers() {
+            this.$ga.page({
+                page: `${this.$route}`,
+                title: `${this.titleWebsite} - ${this.titleReview}`,
+                location: window.location.hre
+            })
+        }
+
 		// onChangePage(pageCurrent){	
 		// 	this.pageCurrent = pageCurrent <= 0 || pageCurrent > this.pagesTotals ? this.pageCurrent : pageCurrent;
 		// 	this.reviewBooks()
@@ -125,6 +134,19 @@ export default {
             })
         }
     },
+
+    head() {
+        return {
+            title: `${this.titleWebsite} - ${this.tittleReview}`,
+            meta: [
+                {
+                    hid: 'description',
+                    name: `${this.titleWebsite} - ${this.tittleAbout}`,
+                }
+            ]
+        }
+    },
+    
 }
 </script>
 

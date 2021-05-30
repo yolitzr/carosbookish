@@ -31,12 +31,11 @@ export default {
 
     methods: {
         limitBooks: function(min, max) {
-            return this.featured.slice(min, max)
-        }
-    }
+            return this.featured.slice(min, max);
+        },
+    },
 }
 </script>
-sty
 <style scoped>
 .blur-featured::after {
     content: '';

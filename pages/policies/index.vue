@@ -24,7 +24,7 @@ import Tab from '~/components/Tabs/Tab';
 import Tabs from '~/components/Tabs/Tabs';
 
 export default {
-    name: 'PoliticBlog',
+    name: 'Policies',
     components:{
         Hero,
         Tab, 
@@ -33,6 +33,8 @@ export default {
 
     data() {
         return {
+            titlePolicy: 'Web and Review Policies',
+            titlewebsite: `Caro's Bookish`,
             webPolicy: `
                 <strong><em>Caro’s Bookish</strong> is a literary website that was created to shared information about book releases and reviews.</em> This website is not a place to download books.
                 <br/>
@@ -102,6 +104,28 @@ export default {
                 <br/>
                 And this is all… See ya!
             `
+        }
+    },
+
+    methods: {
+        trackers() {
+            this.$ga.page({
+                page: `${this.$route}`,
+                title: `${this.titleWebsite}` - `${this.titlePolicy}`,
+                location: window.location.href
+            })
+        }
+    },
+
+    head(){
+        return {
+            title: `${this.titleWebsite}` - `${this.titlePolicy}`,
+            meta: [
+                {
+                    hid: 'description',
+                    name: `${this.titleWebsite} - ${this.tittleAbout}`,
+                }
+            ]
         }
     }
 }
