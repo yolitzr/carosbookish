@@ -4,9 +4,11 @@
             <div class="content mt-8 transition-all duration-200 transform hover:translate-y-1 hover:shadow-xl hover:scale-95">
                 <div class="content-overlay"></div>
                 <div class="p-1">
-                    <figure>
-                        <img :src="staticUrl+book.image_main.path"  class="w-full h-full">
-                    </figure>
+                    <nuxt-img 
+                        :src="staticUrl+book.image_main.path"
+                        height="450"
+                        class="w-full" 
+                    />
                     <div class="content-details fadeIn-top">
                         <h2 class="text-xl font-bold leading-2 uppercase">
                             <nuxt-link :to="/book/+book.slug" class="text-book-white">

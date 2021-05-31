@@ -3,7 +3,7 @@
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <article v-for="(review, item) in limitBooks(0,4)" :key="item" class="article flex flex-wrap flex-col w-full max-w-sm mx-auto mt-20 mb-12 border-book-light rounded-md bg-book-light transition-all duration-200 transform hover:translate-y-1 hover:shadow-xl hover:scale-95">
                 <figure>
-                    <img :src="staticUrl+review.image_main.path" class="w-full h-64 -mt-20 p-2 object-cover transition duration-500 ease-in-out hover:opacity-95">
+                    <nuxt-img :src="staticUrl+review.image_main.path" class="w-full h-64 -mt-20 p-2 object-cover transition duration-500 ease-in-out hover:opacity-95"/>
                 </figure>
                 <div class="h-44 p-4 flex-shrink-0">
                     <nuxt-link :to="/book/+review.slug">

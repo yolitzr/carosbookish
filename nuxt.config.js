@@ -68,11 +68,17 @@ export default {
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
 
-    "@nuxtjs/gtm"
+    "@nuxtjs/gtm",
+
+    "@nuxt/image"
   ],
 
   gtm: {
     id: "GTM-K8J8VL7"
+  },
+
+  image: {
+    domains: ["http://admin.carosbookish.com/"],
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

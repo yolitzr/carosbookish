@@ -10,7 +10,7 @@
                 </div>
             </div>
         </div>
-        <main class="container mx-auto px-6 py-10 lg:px-16">
+        <main class="container mx-auto px-6 py-10 lg:px-12">
             <section>
                 <section class="grid lg:grid-cols-12 lg:mt-12">
                     <!-- Synopsis and Review -->
@@ -33,15 +33,15 @@
                         <!-- About Author -->
                         <aside class="info-author mt-4 py-8 px-5 rounded-xl">
                             <div class="w-full">
-                                <h3 class="text-5xl text-center leading-6 text-book-main sm:mt-8 sm:text-8xl">About the Author</h3>
+                                <h3 class="text-2xl text-center leading-6 text-book-main sm:mt-8 sm:text-5xl md:text-6xl">About the Author</h3>
                             </div>
-                            <div class="flex flex-col justify-center items-center mt-10 py-8 bg-book-lighter sm:flex-row sm:py-8 px-4">
+                            <div class="flex flex-col justify-center items-center mt-10 py-8 px-4 rounded-lg bg-book-lighter sm:flex-row sm:mt-12 lg:mt-16">
                                 <figure class="mt-4">
-                                    <img :src="staticUrl+bookDetails.author.image.path" class="w-52 rounded-full sm:w-full sm:rounded-none">
+                                    <nuxt-img :src="staticUrl+bookDetails.author.image.path" class="w-52 rounded-full sm:w-full sm:rounded-none" />
                                 </figure>
                                 <div class="mt-8 w-full sm:ml-5">
-                                    <h3 class="text-5xl text-center leading-6 tracking-wide text-book-main sm:text-6xl">{{bookDetails.author.name}} {{bookDetails.author.surname}}</h3>
-                                    <p class="py-6 px-2 mb-0" v-html="bookDetails.author.description"></p>
+                                    <h3 class="text-3xl text-center leading-9 tracking-wide text-book-main sm:text-4xl">{{bookDetails.author.name}} {{bookDetails.author.surname}}</h3>
+                                    <p class="text-sm leading-6 py-6 px-2 mb-0" v-html="bookDetails.author.description"></p>
                                     <div class="flex justify-center items-center">
                                         <a v-for="iconSocial in bookDetails.author.social_networks" :key="iconSocial.id" :href="iconSocial.url" class="w-10 h-10 mr-3 rounded-full bg-book-main text-book-white">
                                             <i :class="iconSocial.icon" class="flex justify-center mt-1 text-lg"></i>
@@ -264,6 +264,6 @@ export default {
 }
 
 .info-author h3 {
-    font-family: 'Signatria'
+    font-family: 'Cinzel Decorative', sans-serif;
 }
 </style>
