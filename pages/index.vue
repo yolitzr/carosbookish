@@ -4,7 +4,7 @@
             titleHero="Caro's Bookish"
             subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
         />
-        <main class="container mx-auto p-6">
+        <main class="container mx-auto p-6 lg:py-10 lg:px-14">
             <section class="py-5 md:py-10 lg:pt-14">
                 <loader-featured :count="3" v-if="loading"/>
                 <FeaturedReviews

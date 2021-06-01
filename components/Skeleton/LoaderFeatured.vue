@@ -1,6 +1,6 @@
 <template>
     <div class="sm:grid sm:grid-cols-3 sm:gap-4">
-        <div v-for="n in count" :key="n" class="relative">
+        <div v-for="n in count" class="relative">
             <Skeleton width="100%" height="250" />
         </div>
     </div>

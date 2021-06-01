@@ -12,7 +12,7 @@
                 </button>
             </div>
             <ul :class="showMenu ? 'block': 'hidden'" class="w-full md:flex md:items-center md:w-auto">
-                <li v-for="(link, index) in links" :key="index" class="flex justify-center items-center">
+                <li v-for="(link, index) in links" class="flex justify-center items-center">
                     <nuxt-link :to="link.url" class="flex px-3 py-1 my-2 md:my-0 rounded-full sm:px-3 sm:py-2 sm:inline-block sm:mt-0 text-book-light tracking-wide hover:bg-book-light hover:text-book-main">
                         {{ link.name }}
                     </nuxt-link>

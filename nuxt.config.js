@@ -31,7 +31,9 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/disqus"],
+  plugins: [
+    "~/plugins/disqus", 
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -78,7 +80,7 @@ export default {
   },
 
   image: {
-    domains: ["http://admin.carosbookish.com/"],
+    domains: ["http://admin.carosbookish.com/"]
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

@@ -4,7 +4,7 @@
             titleHero="Caro's Bookish"
             subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
         />
-        <main class="container mx-auto p-6">
+        <main class="container mx-auto p-6 lg:py-10 lg:px-14">
             <section class="py-16">
                 <Tabs>
                     <Tab name="Web Policy" selected="true" class="">

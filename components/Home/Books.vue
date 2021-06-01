@@ -1,6 +1,6 @@
 <template>
     <div class="grid sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
-        <div v-for="(book, item) in limitBooks(0,4)" :key="item">
+        <div v-for="(book, item) in limitBooks(0,4)">
             <div class="content mt-8 transition-all duration-200 transform hover:translate-y-1 hover:shadow-xl hover:scale-95">
                 <div class="content-overlay"></div>
                 <div class="p-1">

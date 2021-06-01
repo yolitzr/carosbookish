@@ -4,7 +4,7 @@
             titleHero="Caro's Bookish"
             subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
         />
-        <main class="container mx-auto p-6">
+        <main class="container mx-auto p-6 lg:py-10 lg:px-14">
             <section class="py-16">
                 <h3 class="mt-6 text-3xl text-center md:text-4xl font-bold uppercase tracking-wider text-book-main">
                     {{titleReview}}
@@ -14,7 +14,7 @@
                 </div>
                 <loader-cover :count="8" v-if="loading"/>
                 <div class="grid md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-4">
-                    <div v-for="bookItem in filteredItems" :key="bookItem.id">
+                    <div v-for="bookItem in filteredItems">
                         <div class="content mt-8 md:mt-4 transition-all duration-200 transform hover:translate-y-1 hover:shadow-xl hover:scale-95">
                             <div class="content-overlay"></div>
                             <div class="p-1">

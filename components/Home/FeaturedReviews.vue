@@ -1,6 +1,6 @@
 <template>
     <div class="sm:grid sm:grid-cols-3 sm:gap-4">
-        <div v-for="book in limitBooks(0, 3)" :key="book.id" class="relative my-5 md:my-0 blur-featured">
+        <div v-for="book in limitBooks(0, 3)" class="relative my-5 md:my-0 blur-featured">
             <nuxt-img :src="staticUrl+book.image_main.path" class="w-full h-44 md:h-64 lg:h-80 object-cover" />
             <div class="absolute bottom-0 ml-6 mb-6 z-10">
                 <h2 class="text-lg lg:text-3xl font-bold leading-6 tracking-wider text-book-white">{{book.title}}</h2>

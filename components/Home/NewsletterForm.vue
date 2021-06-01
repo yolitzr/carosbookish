@@ -48,7 +48,6 @@
                 <ul class="flex justify-center">
                     <li
                     v-for="(error, index) in form.errors"
-                    v-bind:key="index"
                     class="p-1 text-book-white text-sm font-bold tracking-wide"
                     >
                     {{ error }}

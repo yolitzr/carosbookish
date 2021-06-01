@@ -4,7 +4,7 @@
             titleHero="Caro's Bookish"
             subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
         />
-        <main class="container mx-auto p-6">
+        <main class="container mx-auto p-8 lg:py-10 lg:px-14">
             <section class="py-16">
                 <h3 class="text-4xl font-bold text-center leading-6 uppercase tracking-wide text-book-main">{{tittleAbout}}</h3>
                 <div class="flex flex-wrap justify-center items-center">
@@ -15,7 +15,7 @@
                         <p v-html="descriptionAbout" class="text-book-gray mt-6">
                         </p>
                         <div class="flex justify-center items-center gap-4 mt-8">
-                            <div v-for="netgalley in imgNetgalley" :key="netgalley">
+                            <div v-for="netgalley in imgNetgalley">
                                 <img :src="netgalley.imgUrl" :alt="netgalley.imgAlt" class="w-auto">
                             </div>
                         </div>

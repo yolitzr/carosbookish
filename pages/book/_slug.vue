@@ -37,13 +37,13 @@
                             </div>
                             <div class="flex flex-col justify-center items-center mt-10 py-8 px-4 rounded-lg bg-book-lighter sm:flex-row sm:mt-12 lg:mt-16">
                                 <figure class="mt-4">
-                                    <nuxt-img :src="staticUrl+bookDetails.author.image.path" class="w-52 rounded-full sm:w-full sm:rounded-none" />
+                                    <nuxt-img :src="staticUrl+bookDetails.author.image.path" class="w-52 rounded-full sm:w-full sm:rounded-lg" />
                                 </figure>
                                 <div class="mt-8 w-full sm:ml-5">
                                     <h3 class="text-3xl text-center leading-9 tracking-wide text-book-main sm:text-4xl">{{bookDetails.author.name}} {{bookDetails.author.surname}}</h3>
                                     <p class="text-sm leading-6 py-6 px-2 mb-0" v-html="bookDetails.author.description"></p>
                                     <div class="flex justify-center items-center">
-                                        <a v-for="iconSocial in bookDetails.author.social_networks" :key="iconSocial.id" :href="iconSocial.url" class="w-10 h-10 mr-3 rounded-full bg-book-main text-book-white">
+                                        <a v-for="iconSocial in bookDetails.author.social_networks" :href="iconSocial.url" class="w-10 h-10 mr-3 border-2 border-book-second rounded-full text-book-second hover:bg-book-second hover:text-book-light">
                                             <i :class="iconSocial.icon" class="flex justify-center mt-1 text-lg"></i>
                                         </a>
                                     </div>
@@ -96,8 +96,8 @@
                             <div class="mt-8">
                                 <h4 class="text-2xl font-bold text-book-dark">Find this book on:</h4>
                                 <div class="flex items-center">
-                                    <div v-for="(purchase, index) in bookDetails.purchases" :key="index">
-                                        <a :href="purchase.url" class="flex items-center px-3 py-3 mt-4 mr-2 bg-book-main text-book-white rounded-full text-sm tracking-wide hover:opacity-75 uppercase" target="_blank">
+                                    <div v-for="(purchase, index) in bookDetails.purchases">
+                                        <a :href="purchase.url" class="flex items-center px-3 py-3 mt-4 mr-2 border-2 border-book-second rounded-full text-book-second text-sm tracking-wide hover:bg-book-second hover:text-book-light" target="_blank">
                                             <i :class="purchase.icon" class="fa-lg"></i>
                                         </a>
                                     </div>
@@ -114,14 +114,14 @@
                     <div class="mt-12">
                         <h4 class="text-center text-book-main text-2xl font-bold uppercase">Share this book</h4>
                         <div class="flex justify-center items-center mt-5">
-                            <a href="" class="w-10 h-10 bg-book-main text-book-white rounded-full mr-3">
+                            <a href="" class="w-10 h-10 mr-3 border-2 border-book-second rounded-full text-book-second hover:bg-book-second hover:text-book-light">
                                 <i class="fab fa-twitter mt-3 mx-3"></i>
                             </a>
-                            <a href="" class="w-10 h-10 bg-book-main text-book-white rounded-full mr-3">
+                            <a href="" class="w-10 h-10 mr-3 border-2 border-book-second rounded-full text-book-second hover:bg-book-second hover:text-book-light">
                                 <i class="fab fa-pinterest-p mt-3 mx-3"></i>
                             </a>
-                            <a href="" class="w-10 h-10 bg-book-main text-book-white rounded-full">
-                                <i class="fab fa-facebook-f mt-3 mx-4"></i>
+                            <a href="" class="w-10 h-10 border-2 border-book-second rounded-full text-book-second hover:bg-book-second hover:text-book-light">
+                                <i class="fab fa-facebook-f mt-3 mx-3"></i>
                             </a>
                         </div>
                     </div>

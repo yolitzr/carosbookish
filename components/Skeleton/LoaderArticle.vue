@@ -1,6 +1,6 @@
 <template>
     <div class="grid gap-4 justify-items-center sm:grid-cols-2 lg:grid-cols-4">
-        <div v-for="n in count" :key="n">
+        <div v-for="n in count">
             <div class="mb-10">
                 <Skeleton width="300" height="380"/>
                 <div class="flex flex-col justify-center items-center h-56">
