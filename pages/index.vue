@@ -99,9 +99,9 @@ export default {
 				},
 				"search": [
 					{
-						"fields":["review.id"], 
-						"operator":"isNull", 
-						"value":"null"
+						"field":["book.is_featured"], 
+						"operator":"=", 
+						"value": true
 					},
 				],
 			}
@@ -128,7 +128,7 @@ export default {
 				},
 				"search": [
 					{
-						"fields":["review.id"], 
+						"field":["review.id"], 
 						"operator":"isNotNull", 
 						"value":"null"
 					},
@@ -155,7 +155,7 @@ export default {
 				},
 				"search": [
 					{
-                        "fields":["book.published"], 
+                        "field":["book.published"], 
                         "operator":">=", 
                         "value":"2021-01-01"
                     }

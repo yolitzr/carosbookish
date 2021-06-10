@@ -31,9 +31,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    "~/plugins/disqus", 
-  ],
+  plugins: ["~/plugins/disqus"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -71,16 +69,10 @@ export default {
     "@nuxtjs/pwa",
 
     "@nuxtjs/gtm",
-
-    "@nuxt/image"
   ],
 
   gtm: {
     id: "GTM-K8J8VL7"
-  },
-
-  image: {
-    domains: ["http://admin.carosbookish.com/"]
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -109,7 +101,7 @@ export default {
     icon: {
       src: "./static/logo.png",
       fileName: "icon.png",
-      cacheDir: "./node_modules/.cache/pwa/icon"
+      cacheDir: "./node_modules/.cache/pwa/icon",
     }
 
     // workbox: {
@@ -119,8 +111,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    publicPath: "http://blog.carosbookish.com/"
+    publicPath: "https//carosbookish.com/"
   },
 
-  serverMiddleware: [{ path: "/api", handler: "~/api/newsletter.js" }]
+  serverMiddleware: [
+    { path: "/api", handler: "~/api/newsletter.js" }
+  ]
 };

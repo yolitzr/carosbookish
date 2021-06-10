@@ -37,7 +37,7 @@
                             </div>
                             <div class="flex flex-col justify-center items-center mt-10 py-8 px-4 rounded-lg bg-book-lighter sm:flex-row sm:mt-12 lg:mt-16">
                                 <figure class="mt-4">
-                                    <nuxt-img :src="staticUrl+bookDetails.author.image.path" class="w-52 rounded-full sm:w-full sm:rounded-lg" />
+                                    <img :src="staticUrl+bookDetails.author.image.path" class="w-52 rounded-full sm:w-full sm:rounded-lg" />
                                 </figure>
                                 <div class="mt-8 w-full sm:ml-5">
                                     <h3 class="text-3xl text-center leading-9 tracking-wide text-book-main sm:text-4xl">{{bookDetails.author.name}} {{bookDetails.author.surname}}</h3>
