@@ -123,7 +123,7 @@ export default {
             meta: [
                 {
                     hid: 'description',
-                    name: `${this.titleWebsite} - ${this.tittleAbout}`,
+                    name: `${this.titleWebsite} - ${this.titlePolicy}`,
                 }
             ]
         }

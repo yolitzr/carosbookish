@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <loader-cover :count="8" v-if="loading"/>
-                <div class="grid md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-4">
+                <div v-else class="grid md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-4">
                     <div v-for="bookItem in listReviews">
                         <div class="content mt-8 md:mt-4 transition-all duration-200 transform hover:translate-y-1 hover:shadow-xl hover:scale-95">
                             <div class="content-overlay"></div>
@@ -86,16 +86,17 @@ export default {
             listReviews: [],
             search: '',
             staticUrl: 'http://admin.carosbookish.com/',
-            textButton: 'Read More'
+            textButton: 'Read More',
+            loading: false,
         }
     },
 
-    	created() {
-		this.reviewBooks();
+    created() {
+        this.bookReviews();
 	},
 
 	methods: {
-		reviewBooks() {			
+		bookReviews() {			
 			this.loading = true;
 
 			const params = {
@@ -123,10 +124,10 @@ export default {
                 this.listReviews = res;
                 this.loading = false;
             })
-			.then((res) => {
-				this.listReviews = res.results;
-				this.pagesTotals = res.pages_totals;
-			})
+			// .then((res) => {
+			// 	this.listReviews = res.results;
+			// 	this.pagesTotals = res.pages_totals;
+			// })
 			.catch(error => {
 				console.error(error)
 				this.loading = false;
@@ -167,7 +168,7 @@ export default {
             this.searchBooks();
             
             if (this.search == '') {
-                this.reviewBooks()
+                this.bookReviews()
             }
         },
 
@@ -175,13 +176,13 @@ export default {
             this.$ga.page({
                 page: `${this.$route}`,
                 title: `${this.titleWebsite} - ${this.titleReview}`,
-                location: window.location.hre
+                location: window.location.href
             })
         },
 
 		onChangePage(pageCurrent){	
 			this.pageCurrent = pageCurrent <= 0 || pageCurrent > this.pagesTotals ? this.pageCurrent : pageCurrent;
-			this.reviewBooks()
+			this.bookReviews()
 		},
 	},
 

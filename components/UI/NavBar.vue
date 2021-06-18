@@ -6,12 +6,12 @@
                     <Logo class="w-10 focus:outline-none"/>
                 </nuxt-link>
             </div>
-            <div class="block md:hidden">
+            <div class="block lg:hidden">
                 <button @click="toggleNavbar" class="flex items-center px-3 py-2 border rounded text-book-light border-teal-light hover:text-white hover:border-white focus:outline-none">
                     <i class="fas fa-bars fa-lg"></i>
                 </button>
             </div>
-            <ul :class="showMenu ? 'block': 'hidden'" class="w-full md:flex md:items-center md:w-auto">
+            <ul @click="hideItems" :class="showMenu ? 'block': 'hidden'" class="w-full lg:flex lg:items-center lg:w-auto">
                 <li v-for="(link, index) in links" class="flex justify-center items-center">
                     <nuxt-link :to="link.url" class="flex px-3 py-1 my-2 md:my-0 rounded-full sm:px-3 sm:py-2 sm:inline-block sm:mt-0 text-book-light tracking-wide hover:bg-book-light hover:text-book-main">
                         {{ link.name }}
@@ -65,6 +65,10 @@ export default {
         }else {
             document.getElementById("navbar-ul").style.background = "none";
         }
+    },
+
+    hideItems(){
+        this.showMenu = false;
     },
     /* Shrink Navigation */
     scrollFunction() {

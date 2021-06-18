@@ -10,7 +10,6 @@
                             <nuxt-link :to="/book/+book.slug" class="text-book-white">
                                 {{book.title}}
                             </nuxt-link>
-                            
                         </h2>
                         <div class="mt-2">
                             <span class="mr-2 ml-3 font-semibold text-book-light">Publication Date:</span>

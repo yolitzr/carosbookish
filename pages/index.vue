@@ -77,7 +77,7 @@ export default {
             featured: [],
             loading: true,
             titleReviews: 'Lastet Reviews',
-            titleRelease: 'Upcoming Releases in 2021',
+            titleRelease: 'The Most-Anticipated Upcoming Book Releases 2021',
             languaje: 'Spanish',
             titleWebsite: `Caro's Bookish`,
         }
@@ -86,7 +86,7 @@ export default {
     created() {
         this.bookReviews();
         this.featuredBooks();
-        this.releaseBooks();
+        this.bookReleases();
     },
 
     methods: {
@@ -146,7 +146,7 @@ export default {
 			})
         },
 
-        releaseBooks() {
+        bookReleases() {
             this.loading = true;
             const body = {
 				"order": {
@@ -189,7 +189,7 @@ export default {
             meta: [
                 {
                     hid: 'description',
-                    name: `${this.titleWebsite} - ${this.tittleAbout}`,
+                    name: `${this.titleWebsite}`,
                 }
             ]
         }
