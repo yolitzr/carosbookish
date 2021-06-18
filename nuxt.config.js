@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -29,7 +31,6 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
-
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ["~/plugins/disqus"],
 
@@ -69,11 +70,54 @@ export default {
     "@nuxtjs/pwa",
 
     "@nuxtjs/gtm",
+
+    "@nuxtjs/feed"
   ],
 
   gtm: {
     id: "GTM-K8J8VL7"
   },
+
+  feed: [
+    {
+      path: "/feed.xml",
+      async create(feed) {
+        feed.options = {
+          title: `Caro's Bookish`,
+          link: 'https://carosbokish.com/feed.xml',
+          description: 'Web Literary'
+        };
+
+        const config = {
+          headers: {
+            "X-AUTH-TOKEN": "r0bUsSF2H9LiL1aYoHw"
+          }
+        };
+
+        // const posts = await (axios.get('http://admin.carosbookish.com/api/v1/book/list', config)).data
+        // posts.forEach(post => {
+        //   feed.addItem({
+        //     title: post.title,
+        //     url: post.url,
+        //     link: post.url,
+        //     description: post.summary,
+        //     content: post.synopsis,
+        //   })
+        // })
+
+        feed.addCategory('Nuxt.js')
+
+        feed.addContributor({
+          name: "Yolit Zacarias",
+          email: "info@carosbookish.com",
+          link: "https://carosbokish.com/"
+        });
+        
+      },
+      cacheTime: 1000 * 60 * 15,
+      type: "rss2",
+    }
+  ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
@@ -101,7 +145,7 @@ export default {
     icon: {
       src: "./static/logo.png",
       fileName: "icon.png",
-      cacheDir: "./node_modules/.cache/pwa/icon",
+      cacheDir: "./node_modules/.cache/pwa/icon"
     }
 
     // workbox: {
@@ -110,11 +154,23 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    publicPath: "https//carosbookish.com/"
+  // build: {
+  //   publicPath: "https//carosbookish.com/"
+  // },
+
+  serverMiddleware: [{ path: "/api", handler: "~/api/newsletter.js" }],
+
+  env: {
+    DB_HOST: process.env.DB_HOST
   },
 
-  serverMiddleware: [
-    { path: "/api", handler: "~/api/newsletter.js" }
-  ]
+  publicRuntimeConfig: {
+    baseURL:
+      process.env.NODE_ENV === "production"
+        ? "https//carosbookish.com/"
+        : "http://blog.carosbookish.com"
+  },
+  privateRuntimeConfig: {
+    apiSecret: process.env.API_SECRET
+  }
 };

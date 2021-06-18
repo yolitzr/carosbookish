@@ -82,10 +82,8 @@
                                 </div>
                                 <div class="flex items-center mt-1">
                                     <i class="far fa-calendar-alt"></i>
-                                    <span class="font-bold mr-2 ml-3">Date:</span>
-                                    <span class="text-base">{{$moment(bookDetails.published.date).format("Do MMM YYYY")}}
-                                        
-                                    </span>
+                                    <span class="font-bold mr-2 ml-3">Publication Date:</span>
+                                    <span class="text-base">{{$moment(bookDetails.published.date).format("Do MMM YYYY")}}</span>
                                 </div>
                                 <div class="flex items-center mt-1">
                                     <i class="far fa-file"></i>

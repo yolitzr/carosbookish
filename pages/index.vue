@@ -180,6 +180,7 @@ export default {
                 location: window.location.href
             })
         },
+
     },
 
     head() {

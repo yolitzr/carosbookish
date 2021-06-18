@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
 .article figure img {
-    height: 450px;
+    height: 480px;
 }
 
 .article-summary p {

@@ -4,7 +4,7 @@
         <Nuxt />
         <Footer 
             titleFooter="Caro's Bookish | Copyright ©2021 All rights reserved."
-            subTitleFooter="Designed by Yolitzareth Zacarias"
+            subTitleFooter="Designed by Yolitzareth Zacarias for CA Designers"
         />
     </div>
 </template>

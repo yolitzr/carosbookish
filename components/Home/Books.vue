@@ -4,14 +4,19 @@
             <div class="content mt-8 transition-all duration-200 transform hover:translate-y-1 hover:shadow-xl hover:scale-95">
                 <div class="content-overlay"></div>
                 <div class="p-1">
-                    <img :src="staticUrl+book.image_main.path" class="w-full"/>
+                    <img :src="staticUrl+book.image_main.path" class="w-full height-cover"/>
                     <div class="content-details fadeIn-top">
-                        <h2 class="text-xl font-bold leading-2 uppercase">
+                        <h2 class="text-2xl font-bold leading-2 uppercase">
                             <nuxt-link :to="/book/+book.slug" class="text-book-white">
                                 {{book.title}}
                             </nuxt-link>
+                            
                         </h2>
-                        <div class="border-0 text-center inline-block cursor-pointer px-3 py-1 rounded bg-book-second mt-4">
+                        <div class="mt-2">
+                            <span class="mr-2 ml-3 font-semibold text-book-light">Publication Date:</span>
+                            <span class="font-semibold text-book-light">{{$moment(book.published.date).format("Do MMM YYYY")}}</span>
+                        </div>
+                        <div class="border-0 text-center inline-block cursor-pointer mt-6 px-3 py-1 rounded bg-book-second">
                             <nuxt-link :to="/book/+book.slug" class="text-basse tracking-wide uppercase text-book-white">
                                 {{textButton}}
                             </nuxt-link> 

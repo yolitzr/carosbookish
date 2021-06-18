@@ -4,7 +4,7 @@
             <p class="text-sm text-center uppercase tracking-wider text-book-white">
                 {{titleFooter}}
             </p>
-            <span class="block mt-1 text-sm text-center uppercase text-book-lighter">
+            <span class="block mt-1 text-sm text-center uppercase text-book-white">
                 {{subTitleFooter}} <i class="fas fa-heart"></i>
             </span>
         </div>
