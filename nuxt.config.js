@@ -88,22 +88,21 @@ export default {
           description: 'Web Literary'
         };
 
-        const config = {
-          headers: {
-            "X-AUTH-TOKEN": "r0bUsSF2H9LiL1aYoHw"
-          }
-        };
+        // const config = {
+        //   headers: {
+        //     "X-AUTH-TOKEN": "r0bUsSF2H9LiL1aYoHw"
+        //   }
+        // };
 
-        // const posts = await (axios.get('http://admin.carosbookish.com/api/v1/book/list', config)).data
+        // const posts = await axios.post('http://admin.carosbookish.com/api/v1/book/list', config).data
         // posts.forEach(post => {
         //   feed.addItem({
         //     title: post.title,
-        //     url: post.url,
-        //     link: post.url,
+        //     link: post.slug,
         //     description: post.summary,
-        //     content: post.synopsis,
-        //   })
-        // })
+        //     content: post.synopsis
+        //   });
+        // });
 
         feed.addCategory('Nuxt.js')
 
@@ -170,7 +169,7 @@ export default {
         ? "https//carosbookish.com/"
         : "http://blog.carosbookish.com"
   },
-  privateRuntimeConfig: {
-    apiSecret: process.env.API_SECRET
-  }
+  // privateRuntimeConfig: {
+  //   apiSecret: process.env.API_SECRET
+  // }
 };
