@@ -1,5 +1,22 @@
 @tailwind base;
 /* Setting General */
+::-webkit-scrollbar {
+  @apply w-2
+}
+
+::-webkit-scrollbar-track {
+  @apply w-2 bg-book-lighter
+}
+
+::-webkit-scrollbar-thumb {
+  @apply w-2  bg-book-main
+}
+
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active  {
+  @apply bg-book-second
+}
+
+
 *,
 *:before,
 *:after {

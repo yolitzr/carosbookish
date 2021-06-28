@@ -112,7 +112,7 @@
                     <div class="mt-12">
                         <h4 class="text-center text-book-main text-2xl font-bold uppercase">Share this book</h4>
                         <div class="flex justify-center items-center mt-5">
-                            <a href="" class="w-10 h-10 mr-3 border-2 border-book-second rounded-full text-book-second hover:bg-book-second hover:text-book-light">
+                            <a :href="shareFacebook+urlBase+/book/+bookDetails.slug" target="_blank" class="w-10 h-10 mr-3 border-2 border-book-second rounded-full text-book-second hover:bg-book-second hover:text-book-light">
                                 <i class="fab fa-twitter mt-3 mx-3"></i>
                             </a>
                             <a href="" class="w-10 h-10 mr-3 border-2 border-book-second rounded-full text-book-second hover:bg-book-second hover:text-book-light">
@@ -151,6 +151,7 @@ export default {
     data() {
         return {
             titleWebsite: `Caro's Bookish`,
+            urlBase: 'http:carosbookish.com',
             staticUrl: 'http://admin.carosbookish.com/',
             loading: false,
             separadorImg: require('~/assets/img/separator.png'),
@@ -197,6 +198,7 @@ export default {
                     stars: '',
                 }
             },
+            shareFacebook: 'http://www.facebook.com/share.php?u='
         }
     },
 
