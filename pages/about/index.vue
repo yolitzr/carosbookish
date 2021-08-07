@@ -3,6 +3,10 @@
         <Hero 
             titleHero="Caro's Bookish"
             subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
+            hero="hero-img"
+            :image="imgHero"
+            titleStyle="text-6xl sm:text-8xl lg:text-9xl text-center text-book-light"
+            subtitleStyle="mt-4 sm:text-base text-center italic tracking-wide text-book-light"
         />
         <main class="container mx-auto p-8 lg:py-10 lg:px-14">
             <section class="py-16">
@@ -39,6 +43,7 @@ export default {
             tittleAbout: 'About Me',
             titleWebsite: `Caro's Bookish`,
             urlImg: require('~/assets/img/me.jpg'),
+            imgHero: require('~/assets/img/hero.jpg'),
             descriptionAbout: `¡Hi!, I am Yolit , a girl Venezuelan and lover of books, I’ve been passionate about reading for years, the books have been my warm refuge, that place where I can enjoy a thousand emotions. I always read romantic novels, in all their subgenres, erotic, suspense, etc. I am also very fond of Thriller and Noir Novel. Little by little I have been testing with other genres, such as Young Adult, New Adult and Fantasy.
             <br/>
             <br/>

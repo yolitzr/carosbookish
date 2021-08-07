@@ -53,6 +53,7 @@ blockquote {
 @tailwind components;
 /* Hero */
 .hero-img {
+    @apply flex bg-cover bg-center bg-no-repeat;
     height: 75vh;
 }
 
@@ -62,10 +63,35 @@ blockquote {
     top: 0;
     left:0;
     right:0;
-    height: 75vh;
     width: 100%;
+    height: 75vh;
     content: '';
     background-image: linear-gradient(180deg, #86425f 0%, #352F4496 80%);
+}
+
+.hero-img h2 {
+    font-family: 'Signatria';
+}
+
+.hero-img p {
+    font-family: 'Redressed', cursive;
+}
+
+/* Hero BookDetails */
+.blur {
+   @apply flex relative h-96 bg-center bg-no-repeat bg-cover;
+    height: 75vh;
+}
+
+.blur:after {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* Book and Reviews */

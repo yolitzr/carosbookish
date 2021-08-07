@@ -29,6 +29,18 @@ export default {
     ]
   },
 
+  render: {
+    cps: {
+      reportOnly: false,
+      addMeta: true,
+      hashAlgorithm: "sha256",
+      unsafeInlineCompatibility: false,
+      policies: {
+        "script-src": ["'unsafe-inline'", "'unsafe-eval'"]
+      },
+    }
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -84,8 +96,8 @@ export default {
       async create(feed) {
         feed.options = {
           title: `Caro's Bookish`,
-          link: 'https://carosbokish.com/feed.xml',
-          description: 'Web Literary'
+          link: "https://carosbokish.com/feed.xml",
+          description: "Web Literary"
         };
 
         // const config = {
@@ -104,17 +116,16 @@ export default {
         //   });
         // });
 
-        feed.addCategory('Nuxt.js')
+        feed.addCategory("Nuxt.js");
 
         feed.addContributor({
           name: "Yolit Zacarias",
           email: "info@carosbookish.com",
           link: "https://carosbokish.com/"
         });
-        
       },
       cacheTime: 1000 * 60 * 15,
-      type: "rss2",
+      type: "rss2"
     }
   ],
 
@@ -153,9 +164,10 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  // build: {
-  //   publicPath: "https//carosbookish.com/"
-  // },
+  build: {
+    // publicPath: "https//carosbookish.com/"
+    vendor: ['axios']
+  },
 
   serverMiddleware: [{ path: "/api", handler: "~/api/newsletter.js" }],
 
@@ -168,7 +180,7 @@ export default {
       process.env.NODE_ENV === "production"
         ? "https//carosbookish.com/"
         : "http://blog.carosbookish.com"
-  },
+  }
   // privateRuntimeConfig: {
   //   apiSecret: process.env.API_SECRET
   // }

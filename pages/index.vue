@@ -3,6 +3,10 @@
         <Hero 
             titleHero="Caro's Bookish"
             subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
+            :image="imgHero"
+            hero="hero-img"
+            titleStyle="text-6xl sm:text-8xl lg:text-9xl text-center text-book-light"
+            subtitleStyle="mt-4 sm:text-base text-center italic tracking-wide text-book-light"
         />
         <main class="container mx-auto p-6 lg:py-10 lg:px-14">
             <section class="py-5 md:py-10 lg:pt-14">
@@ -56,6 +60,7 @@ import LoaderCover from '~/components/Skeleton/LoaderCover'
 import LoaderArticle from '~/components/Skeleton/LoaderArticle'
 import LoaderFeatured from '~/components/Skeleton/LoaderFeatured'
 
+
 export default {
     name: 'Home',
     
@@ -69,19 +74,20 @@ export default {
         LoaderArticle,
         LoaderFeatured
     },
-
     data() {
         return {
             books: [],
             reviews: [],
             featured: [],
-            loading: true,
+            loading: false,
             titleReviews: 'Lastet Reviews',
             titleRelease: 'The Most-Anticipated Upcoming Book Releases 2021',
             languaje: 'Spanish',
             titleWebsite: `Caro's Bookish`,
+            imgHero: require('~/assets/img/hero.jpg'),
         }
     },
+
 
     created() {
         this.bookReviews();

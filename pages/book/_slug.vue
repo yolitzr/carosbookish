@@ -1,15 +1,15 @@
 <template>
     <div>
-        <div class="flex relative h-96 bg-center bg-no-repeat bg-cover blur" :style="{ backgroundImage: `url(${staticUrl+bookDetails.image_main.path})` }">
-            <div class="flex md:flex-col justify-center items-center mx-auto w-full p-4 z-10">
-                <div class="flex flex-col justify-center w-full h-auto py-4 px-5 mt-16 lg:px-40">
-                    <h2 class="text-3xl font-bold text-center text-book-light lg:text-4xl">{{bookDetails.title}}</h2>
-                    <h3 class="mt-4 text-2xl font-semibold text-center text-book-light lg:text-3xl">{{bookDetails.author.name}} {{bookDetails.author.surname}}</h3>
-                    <h4 class="mt-2 text-xl text-center text-book-light">{{bookDetails.editorial}}</h4>
-                    <span class="mt-4 block text-center italic text-book-light">{{bookDetails.summary}}</span>
-                </div>
-            </div>
-        </div>
+        <Hero 
+            :titleHero="bookDetails.title"
+            :authorFullName='bookDetails.author.name + ` ` + bookDetails.author.surname'
+            :editorial="bookDetails.editorial"
+            :summary="bookDetails.summary"
+            hero="blur"
+            :image="staticUrl+bookDetails.image_main.path"
+            titleStyle="text-3xl font-bold text-center text-book-light lg:text-4xl"
+            authorStyle="mt-4 text-2xl font-semibold text-center text-book-light lg:text-3xl"
+        />
         <main class="container mx-auto px-6 py-10 lg:px-12">
             <section>
                 <section class="grid lg:grid-cols-12 lg:mt-12">
@@ -138,12 +138,14 @@
 </template>
 <script>
 import api from '~/assets/js/api';
+import Hero from "~/components/UI/Hero";
 import Tab from '~/components/Tabs/Tab';
 import Tabs from '~/components/Tabs/Tabs';
 
 export default {
     name: 'BookDetails',
     components: {
+        Hero,
         Tab,
         Tabs,
     },
@@ -244,21 +246,6 @@ export default {
 }
 </script>
 <style scoped>
-.blur {
-    height: 75vh;
-}
-
-.blur:after {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: '';
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
 .height-custom {
     height: fit-content;
 }
