@@ -3,6 +3,10 @@
         <Hero 
             titleHero="Caro's Bookish"
             subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
+            :image="imgHero"
+            hero="hero-img"
+            titleStyle="text-6xl sm:text-8xl lg:text-9xl text-center text-book-light"
+            subtitleStyle="mt-4 sm:text-base text-center italic tracking-wide text-book-light"
         />
         <main class="container mx-auto p-6 lg:py-10 lg:px-14">
             <section class="py-16">
@@ -35,6 +39,7 @@ export default {
         return {
             titlePolicy: 'Web and Review Policies',
             titlewebsite: `Caro's Bookish`,
+            imgHero: require('~/assets/img/hero.jpg'),
             webPolicy: `
                 <strong><em>Caro’s Bookish</strong> is a literary website that was created to shared information about book releases and reviews.</em> This website is not a place to download books.
                 <br/>
